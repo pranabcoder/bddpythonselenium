@@ -1,5 +1,4 @@
 from features.pages.BasePage import BasePage
-from utilities.ElementActions import find_element_and_action
 
 
 class AccountPage(BasePage):
@@ -9,5 +8,5 @@ class AccountPage(BasePage):
     edit_account_information_link_text = 'Edit your account information'
 
     def is_edit_account_information_link_displayed(self):
-        assert find_element_and_action(self.driver, 'link_text', self.edit_account_information_link_text,
-                                       'is_displayed')
+        assert self.find_element_and_action('link_text', self.edit_account_information_link_text,
+                                            'is_displayed')

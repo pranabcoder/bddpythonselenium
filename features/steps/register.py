@@ -1,21 +1,19 @@
 from behave import given, when, then
 from features.pages.HomePage import HomePage
-from features.pages.RegisterPage import RegisterPage
 
 
 @given(u'I navigate to register page')
 def step_impl(context):
     context.home_page = HomePage(context.driver)
-    context.register_page = RegisterPage(context.driver)
     context.home_page.click_my_account()
-    context.home_page.click_register()
+    context.register_page = context.home_page.click_register()
 
 
 @when(u'I fill in the mandatory fields')
 def step_impl(context):
     context.register_page.enter_first_name('Pranab')
     context.register_page.enter_last_name('Ghosh')
-    context.register_page.enter_email('pranabtesten@test.com')
+    context.register_page.enter_email('pranabtestfourteen@test.com')
     context.register_page.enter_telephone('1234567')
     context.register_page.enter_password('12345')
     context.register_page.enter_confirm_password('12345')
@@ -36,7 +34,7 @@ def step_impl(context):
 def step_impl(context):
     context.register_page.enter_first_name('Pranab')
     context.register_page.enter_last_name('Ghosh')
-    context.register_page.enter_email('pranabtesteleven@test.com')
+    context.register_page.enter_email('pranabtestsixteen@test.com')
     context.register_page.enter_telephone('890765456')
     context.register_page.enter_password('12345')
     context.register_page.enter_confirm_password('12345')

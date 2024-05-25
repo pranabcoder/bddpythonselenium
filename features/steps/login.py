@@ -1,16 +1,12 @@
 from behave import given, when, then
-from features.pages.AccountPage import AccountPage
 from features.pages.HomePage import HomePage
-from features.pages.LoginPage import LoginPage
 
 
 @given(u'I am on the login page')
 def step_impl(context):
     context.home_page = HomePage(context.driver)
     context.home_page.click_my_account()
-    context.home_page.click_login()
-    context.login_page = LoginPage(context.driver)
-    context.account_page = AccountPage(context.driver)
+    context.login_page = context.home_page.click_login()
 
 
 @when(u'I enter valid username and password')
@@ -21,7 +17,7 @@ def step_impl(context):
 
 @when(u'I click on the login button')
 def step_impl(context):
-    context.login_page.click_login_button()
+    context.account_page = context.login_page.click_login_button()
 
 
 @then(u'I should be redirected to the home page')

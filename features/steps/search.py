@@ -6,7 +6,6 @@ from features.pages.SearchPage import SearchPage
 @given(u'I am on the homepage')
 def step_impl(context):
     context.home_page = HomePage(context.driver)
-    context.search_page = SearchPage(context.driver)
     context.home_page.verify_title()
 
 
@@ -17,7 +16,7 @@ def step_impl(context):
 
 @when(u'I click on search button')
 def step_impl(context):
-    context.home_page.click_on_search_button()
+    context.search_page = context.home_page.click_on_search_button()
 
 
 @then(u'Valid product should be displayed in the search result')
