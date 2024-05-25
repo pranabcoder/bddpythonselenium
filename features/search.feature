@@ -5,6 +5,8 @@ Feature: Search Functionality
   Scenario: Search for a valid product
     Given I am on the homepage
     When I enter valid product into the search box field
+      | product_name |
+      | HP           |
     And I click on search button
     Then Valid product should be displayed in the search result
 
@@ -12,6 +14,8 @@ Feature: Search Functionality
   Scenario: Search for a invalid product
     Given I am on the homepage
     When I enter invalid product into the search box field
+        | product_name |
+        | Honda        |
     And I click on search button
     Then Proper message should be displayed in the search results
 

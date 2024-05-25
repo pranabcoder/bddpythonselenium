@@ -11,13 +11,14 @@ def step_impl(context):
 
 @when(u'I fill in the mandatory fields')
 def step_impl(context):
-    context.register_page.enter_first_name('Pranab')
-    context.register_page.enter_last_name('Ghosh')
-    context.register_page.enter_email('pranabtestfourteen@test.com')
-    context.register_page.enter_telephone('1234567')
-    context.register_page.enter_password('12345')
-    context.register_page.enter_confirm_password('12345')
-    context.register_page.click_agree_checkbox()
+    for registration_data in context.table:
+        context.register_page.enter_first_name(registration_data['first_name'])
+        context.register_page.enter_last_name(registration_data['last_name'])
+        context.register_page.enter_email(registration_data['email'])
+        context.register_page.enter_telephone(registration_data['telephone'])
+        context.register_page.enter_password(registration_data['password'])
+        context.register_page.enter_confirm_password(registration_data['confirm_password'])
+        context.register_page.click_agree_checkbox()
 
 
 @when(u'I click on register button')
@@ -32,31 +33,33 @@ def step_impl(context):
 
 @when(u'I fill in all the fields')
 def step_impl(context):
-    context.register_page.enter_first_name('Pranab')
-    context.register_page.enter_last_name('Ghosh')
-    context.register_page.enter_email('pranabtestsixteen@test.com')
-    context.register_page.enter_telephone('890765456')
-    context.register_page.enter_password('12345')
-    context.register_page.enter_confirm_password('12345')
-    context.register_page.click_subscribe_yes()
-    context.register_page.click_agree_checkbox()
+    for registration_data in context.table:
+        context.register_page.enter_first_name(registration_data['first_name'])
+        context.register_page.enter_last_name(registration_data['last_name'])
+        context.register_page.enter_email(registration_data['email'])
+        context.register_page.enter_telephone(registration_data['telephone'])
+        context.register_page.enter_password(registration_data['password'])
+        context.register_page.enter_confirm_password(registration_data['confirm_password'])
+        context.register_page.click_subscribe_yes()
+        context.register_page.click_agree_checkbox()
 
 
 @when(u'I enter details into all fields except email')
 def step_impl(context):
-    context.register_page.enter_first_name('Pranab')
-    context.register_page.enter_last_name('Ghosh')
-    context.register_page.enter_email('pranabtestnine@test.com')
-    context.register_page.enter_telephone('890765456')
-    context.register_page.enter_password('12345')
-    context.register_page.enter_confirm_password('12345')
-    context.register_page.click_subscribe_yes()
-    context.register_page.click_agree_checkbox()
+    for registration_data in context.table:
+        context.register_page.enter_first_name(registration_data['first_name'])
+        context.register_page.enter_last_name(registration_data['last_name'])
+        context.register_page.enter_telephone(registration_data['telephone'])
+        context.register_page.enter_password(registration_data['password'])
+        context.register_page.enter_confirm_password(registration_data['confirm_password'])
+        context.register_page.click_subscribe_yes()
+        context.register_page.click_agree_checkbox()
 
 
 @when(u'I enter existing email address into email field')
 def step_impl(context):
-    context.register_page.enter_email('pranabtestwo@gmail.com')
+    for registration_data in context.table:
+        context.register_page.enter_email(registration_data['email'])
 
 
 @then(u'I should see the error message')

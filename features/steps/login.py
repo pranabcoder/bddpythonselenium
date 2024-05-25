@@ -9,10 +9,10 @@ def step_impl(context):
     context.login_page = context.home_page.click_login()
 
 
-@when(u'I enter valid username and password')
-def step_impl(context):
-    context.login_page.enter_email_address('pranabtest@gmail.com')
-    context.login_page.enter_password('1234')
+@when(u'I enter valid username as "{username}" and password as "{password}"')
+def step_impl(context, username, password):
+    context.login_page.enter_email_address(username)
+    context.login_page.enter_password(password)
 
 
 @when(u'I click on the login button')
@@ -25,10 +25,10 @@ def step_impl(context):
     context.account_page.is_edit_account_information_link_displayed()
 
 
-@when(u'I enter invalid username and password')
-def step_impl(context):
-    context.login_page.enter_email_address('pranabtest@gmail.com')
-    context.login_page.enter_password('123456')
+@when(u'I enter invalid username as "{username}" and password as "{password}"')
+def step_impl(context, username, password):
+    context.login_page.enter_email_address(username)
+    context.login_page.enter_password(password)
 
 
 @then(u'I should see an error message')

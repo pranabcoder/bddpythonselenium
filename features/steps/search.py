@@ -11,7 +11,8 @@ def step_impl(context):
 
 @when(u'I enter valid product into the search box field')
 def step_impl(context):
-    context.home_page.enter_product_into_search_box_field('HP')
+    for search_data in context.table:
+        context.home_page.enter_product_into_search_box_field(search_data['product_name'])
 
 
 @when(u'I click on search button')
@@ -26,7 +27,8 @@ def step_impl(context):
 
 @when(u'I enter invalid product into the search box field')
 def step_impl(context):
-    context.home_page.enter_product_into_search_box_field('Honda')
+    for search_data in context.table:
+        context.home_page.enter_product_into_search_box_field(search_data['product_name'])
 
 
 @then(u'Proper message should be displayed in the search results')
